@@ -58,6 +58,30 @@ public class DataLoader implements CommandLineRunner {
         runnerEntity2.getLaptimes().add(laptime4);
 
         runnerRepository.save(runnerEntity2);
+
+
+        //create new runner entity
+
+        RunnerEntity runnerEntity3 = new RunnerEntity();
+        runnerEntity3.setRunnerName("Eszti");
+        runnerEntity3.setAveragePace(280);
+        runnerEntity3.setRunnerAge(20);
+
+        // create new laptime entities and add them to the runner entity
+        LapTimeEntity laptime5 = new LapTimeEntity();
+        laptime5.setLapNumber(1);
+        laptime5.setTimeSeconds(85);
+        laptime5.setRunner(runnerEntity2);
+
+        LapTimeEntity laptime6 = new LapTimeEntity();
+        laptime6.setLapNumber(2);
+        laptime6.setTimeSeconds(92);
+        laptime6.setRunner(runnerEntity2);
+
+        runnerEntity3.getLaptimes().add(laptime5);
+        runnerEntity3.getLaptimes().add(laptime6);
+
+        runnerRepository.save(runnerEntity3);
     }
 }
 
